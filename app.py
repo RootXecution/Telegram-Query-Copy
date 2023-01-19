@@ -1,20 +1,16 @@
 import os
 from datetime import datetime, timedelta
 from random import randint, choice
-import time
 
 # Define the start and end dates
-start_date = datetime(2023, 1, 1)
-end_date = datetime(2023, 12, 22)
+start_date = datetime(2024, 9, 1)
+end_date = datetime(2025, 1, 21)
 
 # Generate a list of all possible dates between start_date and end_date
 date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
 
-# Total number of commits to make
-total_commits = 100
-
-# Loop to make commits
-for _ in range(total_commits):
+# Randomly pick dates for commits
+for _ in range(365):  # Adjust the number of total commits as needed
     # Pick a random date from the date_range
     random_date = choice(date_range)
     formatted_date = random_date.strftime('%Y-%m-%d %H:%M:%S')  # Format as YYYY-MM-DD HH:MM:SS
@@ -28,10 +24,5 @@ for _ in range(total_commits):
         os.system('git add .')
         os.system(f'git commit --date="{formatted_date}" -m "Random commit"')
 
-    # Wait for a random time before the next batch of commits (e.g., between 5 to 30 seconds)
-    wait_time = randint(5, 30)
-    print(f"Waiting for {wait_time} seconds before next commit...")
-    time.sleep(wait_time)
-
-# Push all changes to the remote repository after all commits are made
+# Push all changes to the remote repository
 os.system('git push -u origin main')
