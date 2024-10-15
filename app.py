@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from random import randint, choice
 
 # Define the start and end dates
-start_date = datetime(2024, 9, 1)
+start_date = datetime(2024, 7, 1)
 end_date = datetime(2025, 1, 21)
 
 # Generate a list of all possible dates between start_date and end_date
