@@ -3,3 +3,5 @@
 ```javascript
 copy(Telegram.WebApp.initData)
 ```
+
+#Easy
